@@ -12,3 +12,10 @@ scripts that are also copyrighted by me, unless otherwise noted.
 If you think I made a mistake in that some of the works in this
 repository are copyrighted by a third party, please contact me
 personally for clarification prior to suing me.
+
+<!--
+  Local Variables:
+    coding:utf-8
+    mode:Markdown
+  End:
+-->

@@ -7,3 +7,8 @@
 #export LD_LIBRARY_PATH=/usr/lib:$LD_LIBRARY_PATH
 
 exec lilypond $*
+
+#  Local Variables:
+#    coding:utf-8
+#    mode:Shell-script[sh]
+#  End:

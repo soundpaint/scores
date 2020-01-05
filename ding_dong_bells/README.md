@@ -10,3 +10,10 @@ it to the key of G major, e.g. for use in a SATB mixed choir setting.
 I think, the key of G major also perfectly matches the playful melody
 phrases around the main major and minor triads, that slighty remind me
 of a typical intrada style.
+
+<!--
+  Local Variables:
+    coding:utf-8
+    mode:Markdown
+  End:
+-->
