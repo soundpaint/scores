@@ -377,9 +377,9 @@ sopranoLyrics_Coda = \lyricmode {
   Schrum!
 }
 
-altoNotes_Intro = {
+altoINotes_Intro = {
   \transpose c' c'' {
-    \set Staff.instrumentName = "Alto  "
+    \set Staff.instrumentName = "Alto 1"
     \set Staff.shortInstrumentName = " "
     \set Staff.midiInstrument = "alto sax"
     \override Script.direction = #UP
@@ -391,196 +391,132 @@ altoNotes_Intro = {
   }
 }
 
-altoNotes_Debug = {
+altoINotes_Debug = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << \new Voice { \voiceOne d2-> f4-^ e-^ }
-       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
-    << \new Voice { \voiceOne d2 e4-^ e-^ }
-       \new Voice { \voiceTwo b,2 c4-^ cis-^ } >> |
-    << \new Voice { \voiceOne f4-^ f-^ f( e) }
-       \new Voice { \voiceTwo c?4-^ c-^ c( b,) } >> |
+    d2-> f4-^ e-^ |
+    d2 e4-^ e-^ |
+    f4-^ f-^ f( e) |
 
-    << \new Voice { \voiceOne d4( d') }
-       \new Voice { \voiceTwo a,( a) } >>
-    as4-^ as-^ |
+    d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
-    << { d4 } { c4 } >> r4 r2 |
+    r8 d4.-> e4-^ e8-- d~->  |
+    d4 r r2 |
   }
 }
 
-altoNotes_VerseI = {
+altoINotes_VerseI = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
-% FIXME: Below, we should say something like:
-%
-%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
-%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
-%
-% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { \voiceOne d2-> f4-^ e-^ }
-       { \voiceOne bes,2-> d4-^ cis-^ } >> |
-    << { \voiceOne d2 e4-^ e-^ }
-       { \voiceOne b,2 c4-^ cis-^ } >> |
-    << { \voiceOne f4-^ f-^ f( e) }
-       { \voiceOne c?4-^ c-^ c( b,) } >> |
+    d2-> f4-^ e-^ |
+    d2 e4-^ e-^ |
+    f4-- f8-- f4.->( e4) |
 
-    << { \voiceOne d4( d') }
-       { \voiceOne a,( a) } >>
-    as4-^ as-^ |
+    d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
-    << { d4 } { c4 } >> r4 r2 |
+    r8 d4.-> e4-^ e8-- d~-> |
+    d4 r r2 |
   }
 }
 
-altoNotes_VerseII = {
+altoINotes_VerseII = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
-% FIXME: Below, we should say something like:
-%
-%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
-%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
-%
-% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { \voiceOne d2-> f4-^ e-^ }
-       { \voiceOne bes,2-> d4-^ cis-^ } >> |
-    << { \voiceOne d2 e4-^ e-^ }
-       { \voiceOne b,2 c4-^ cis-^ } >> |
-    << { \voiceOne f4-^ f-^ f( e) }
-       { \voiceOne c?4-^ c-^ c( b,) } >> |
+    d2-> f4-^ e-^ |
+    d2 e4-^ e-^ |
+    f4-- f8-- f4.->( e4) |
 
-    << { \voiceOne d4( d') }
-       { \voiceOne a,( a) } >>
-    as4-^ as-^ |
+    d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
-    << { d4 } { c4 } >> r4 r2 |
+    r8 d4.-> e4-^ e8-- d~-> |
+    d4 r r2 |
   }
 }
 
-altoNotes_Soli = {
+altoINotes_Soli = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
-%    r8 <g bes>-^ r4 q-^ r |
-%    q-^ r8 <f a>~-> q2 |
+%    r8 g-^ r4 q-^ r |
+%    q-^ r8 f~-> q2 |
 %    r8 q-^ r4 q-^ r |
-%    <g bes>-^ r8 q~-> q2 |
-%    << \new Voice { \directionUp bes1(~ | bes2 as4 f) }
-%       { \directionDown g2(\p as | g\cresc f) } >>
-%    \directionNeutral r8\! q-^ r4 <g a>-^ <f a>8-- <g bes>~-> |
+%    bes-^ r8 q~-> q2 |
+%    bes1(~ | bes2 as4 f)
+%    r8\! q-^ r4 g-^ f8-- g~-> |
 %    q2. r4 |
-%    r8 <g bes>-^ r4 q-^ r |
-%    q-^ r8 <f a>~-> q2 |
+%    r8 g-^ r4 q-^ r |
+%    q-^ r8 f~-> q2 |
 %    r8 q-^ r4 q-^ r |
-%    <g bes>-^ r8 q~-> q2 |
-%    << \new Voice { \directionUp bes1(~ | bes2 as4 f) }
-%       { \directionDown g2(\p as | g\cresc f) } >>
-%    \directionNeutral r8\! q-^ r4 <g a>-^ <f a>8-- <g bes>~-> |
+%    g-^ r8 q~-> q2 |
+%    bes1(~ | bes2 as4 f)
+%    r8\! q-^ r4 g-^ f8-- g~-> |
 %    q2. r4 |
   }
 }
 
-altoNotes_Coda = {
+altoINotes_Coda = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 <<
-      { g4->^( f8) e4-^ f8-- g->~ |
-        g4^( f) }
-      { d4.-> c4-^ d8-- c->~ |
-        c2 }
-    >> r2 |
+    r8 g4->^( f8) e4-^ f8-- g->~ |
+    g4^( f) r2 |
 
-% FIXME: Below, we should say something like:
-%
-%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
-%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
-%
-% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { \voiceOne d2-> f4-^ e-^ }
-       { \voiceOne bes,2-> d4-^ cis-^ } >> |
-    << { \voiceOne d2 e4-^ e-^ }
-       { \voiceOne b,2 c4-^ cis-^ } >> |
-    << { \voiceOne f4-^ f-^ f( e) }
-       { \voiceOne c?4-^ c-^ c( b,) } >> |
+    d2-> f4-^ e-^ |
+    d2 e4-^ e-^ |
+    f4-- f8-- f4.->( e4) |
 
-    << { \voiceOne d4( d') }
-       { \voiceOne a,( a) } >>
-    as4-^ as-^ |
+    d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
-    << { d4 } { c4 } >> r4 r2 |
+    r8 d4.-> e4-^ e8-- d~-> |
+    d4 r r2 |
 
-    r2 r4 r8 <e c>8\p~-> |
-    <e c>1\fermata |
+    r2 r4 r8 e\p~-> |
+    e1\fermata |
   }
 }
 
-altoLyrics_Intro = \lyricmode {
+altoILyrics_Intro = \lyricmode {
   Hei -- ßa, |
   hei -- ßa, |
   hei -- ßa, schrum, schrum! |
   \skip 1 |
 }
 
-altoLyrics_VerseI = \lyricmode {
+altoILyrics_VerseI = \lyricmode {
   Hei -- ßa, Ka -- |
   threi -- ner -- le, __ |
   schnür' dir die Schuh', __ |
@@ -596,7 +532,7 @@ altoLyrics_VerseI = \lyricmode {
   frisch im -- mer zu! |
 }
 
-altoLyrics_VerseII = \lyricmode {
+altoILyrics_VerseII = \lyricmode {
   Dreh' wie ein |
   Rä -- de -- le |
   flink dich im Tanz! |
@@ -612,7 +548,7 @@ altoLyrics_VerseII = \lyricmode {
   fest -- li -- chen Glanz.
 }
 
-altoLyrics_Soli = \lyricmode {
+altoILyrics_Soli = \lyricmode {
   Dup buck |
   buck daah
   dup buck |
@@ -627,7 +563,211 @@ altoLyrics_Soli = \lyricmode {
   dup buck dee daah
 }
 
-altoLyrics_Coda = \lyricmode {
+altoILyrics_Coda = \lyricmode {
+  Heu -- te heißt’s |
+  lus -- tig sein, |
+  mor -- gen ist’s aus. |
+  Sin -- ket der |
+  Lich -- ter Schein, |
+  geh’n wir nach Haus. |
+  Di -- dl, du -- dl, da -- dl, |
+  schrum, schrum, schrum, |
+  Mor -- gen mit |
+  viel Ge -- brumm |
+  fegt die Frau |
+  Wir -- tin den |
+  Tanz -- bo -- den aus. |
+  |
+  Schrum! |
+}
+
+altoIINotes_Intro = {
+  \transpose c' c'' {
+    \set Staff.instrumentName = "Alto 2"
+    \set Staff.shortInstrumentName = " "
+    \set Staff.midiInstrument = "alto sax"
+    \override Script.direction = #UP
+    \clef "treble"
+    f4.-> f8-^ r2 |
+    f4.-> f8-^ r2 |
+    c4.-> c8-^ r4 c8-- f-^ |
+    R1 |
+  }
+}
+
+altoIINotes_Debug = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 c4-^ c8-- c-- c-- c-- c-- |
+    bes,2-> d4-^ cis-^ |
+    b,2 c4-^ cis-^ |
+    c?4-^ c-^ c( b,) |
+
+    a,( a) as4-^ as-^ |
+    a?-- g8-- fis4.->( d4) |
+    r8 bes,4.-> c4-^ c8-- c-> |
+    c4 r r2 |
+  }
+}
+
+altoIINotes_VerseI = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 c4-^ c8-- c-- c-- c-- c-- |
+    bes,2-> d4-^ cis-^ |
+    b,2 c4-^ cis-^ |
+    c?4-- c8-- c4.->( b,4) |
+
+    a,( a) f4-^ f-^ |
+    f-- f8-- d8~-> d2 |
+    r8 bes,4.-> c4-^ c8-- c~-> |
+    c4 r r2 |
+  }
+}
+
+altoIINotes_VerseII = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 c4-^ c8-- c-- c-- c-- c-- |
+    bes,2-> d4-^ cis-^ |
+    b,2 c4-^ cis-^ |
+    c?4-- c8-- c4.->( b,4) |
+
+    a,( a) f4-^ f-^ |
+    f-- f8-- d8~-> d2 |
+    r8 bes,4.-> c4-^ c8-- c~-> |
+    c4 r r2 |
+  }
+}
+
+altoIINotes_Soli = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+%    r8 bes-^ r4 q-^ r |
+%    q-^ r8 a~-> q2 |
+%    r8 q-^ r4 q-^ r |
+%    bes-^ r8 q~-> q2 |
+%    g2(\p as | g\cresc f)
+%    r8\! q-^ r4 a-^ a8-- bes~-> |
+%    q2. r4 |
+%    r8 bes-^ r4 q-^ r |
+%    q-^ r8 a~-> q2 |
+%    r8 q-^ r4 q-^ r |
+%    bes-^ r8 q~-> q2 |
+%    g2(\p as | g\cresc f)
+%    r8\! q-^ r4 a-^ a8-- bes~-> |
+%    q2. r4 |
+  }
+}
+
+altoIINotes_Coda = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 f4.-> f4-^ f-^ |
+    f-- f8-- f->~f2 |
+    r8 d4.-> c4-^ d8-- c->~ |
+    c2 r2 |
+
+    r8 c4-^ c8-- c-- c-- c-- c-- |
+    bes,2-> d4-^ cis-^ |
+    b,2 c4-^ cis-^ |
+    c?4-- c8-- c4.->( b,4) |
+
+    a,( a) f4-^ f-^ |
+    f-- f8-- d8~-> d2 |
+    r8 bes,4.-> c4-^ c8-- c~-> |
+    c4 r r2 |
+
+    r2 r4 r8 c\p~-> |
+    c1\fermata |
+  }
+}
+
+altoIILyrics_Intro = \lyricmode {
+  Hei -- ßa, |
+  hei -- ßa, |
+  hei -- ßa, schrum, schrum! |
+  \skip 1 |
+}
+
+altoIILyrics_VerseI = \lyricmode {
+  Hei -- ßa, Ka -- |
+  threi -- ner -- le, __ |
+  schnür' dir die Schuh', __ |
+  schürz' dir dein |
+  Rö -- cke -- le, __ |
+  gönn' dir kein' Ruh'. __ |
+  Di -- dl, du -- dl, da --dl, |
+  schrum, schrum, schrum, |
+  geht schon der |
+  Hop -- ser 'rum, |
+  hei -- ßa, Ka -- |
+  threi -- ner -- le, |
+  frisch im -- mer zu! |
+}
+
+altoIILyrics_VerseII = \lyricmode {
+  Dreh' wie ein |
+  Rä -- de -- le |
+  flink dich im Tanz! |
+  Flie -- gen die |
+  Zö -- pfe -- le, |
+  wir -- belt der Kranz. |
+  Di -- dl, du -- dl, da -- dl, |
+  schrum, schrum, schrum, |
+  lus -- tig im |
+  Kreis he -- rum |
+  dreh dich, mein |
+  Mä -- del, im |
+  fest -- li -- chen Glanz.
+}
+
+altoIILyrics_Soli = \lyricmode {
+  Dup buck |
+  buck daah
+  dup buck |
+  dup daah
+  waah __
+  dup buck dee daah
+  Dup buck |
+  buck daah
+  dup buck |
+  dup daah
+  waah __
+  dup buck dee daah
+}
+
+altoIILyrics_Coda = \lyricmode {
   Heu -- te heißt’s |
   lus -- tig sein, |
   mor -- gen ist’s aus. |
@@ -692,7 +832,7 @@ tenoreNotes_VerseI = {
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
     as2-> as4-^ g-^ |
     f2 bes4-^ g-^ |
-    ges4-^ ges-^ ges( f) |
+    ges4-- ges8-- ges4.->( f4) |
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
@@ -718,7 +858,7 @@ tenoreNotes_VerseII = {
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
     as2-> as4-^ g-^ |
     f2 bes4-^ g-^ |
-    ges4-^ ges-^ ges( f) |
+    ges4-- ges8-- ges4.->( f4) |
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
@@ -767,7 +907,7 @@ tenoreNotes_Coda = {
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
     as2-> as4-^ g-^ |
     f2 bes4-^ g-^ |
-    ges4-^ ges-^ ges( f) |
+    ges4-- ges8-- ges4.->( f4) |
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
@@ -875,7 +1015,7 @@ bassoNotes_Debug = {
     as,-^ as,-^ as,( g,) |
 
     f,( f) bes,-^ bes-^ |
-    f8-- f,4-> d4.->( fis4) |
+    f8-- f,4.-> d4->( fis) |
     g2 c4-^ c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
   }
@@ -895,13 +1035,13 @@ bassoNotes_VerseI = {
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
-    c4-^ g-^ e8-- e-- c-- g-- |
+    c4-- g-^ e8-- e-- c-- g-- |
     f2-> bes,4-^ a,-^ |
     g,2 c4-^ a,-^ |
     as,-^ as,-^ as,( g,) |
 
     f,( f) bes,-^ bes-^ |
-    f8-- f,4-> d4.->( fis4) |
+    f8-- f,4.-> d4->( fis) |
     g2 c4-^ c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
   }
@@ -921,13 +1061,13 @@ bassoNotes_VerseII = {
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
-    c4-^ g-^ e8-- e-- c-- g-- |
+    c4-- g-^ e8-- e-- c-- g-- |
     f2-> bes,4-^ a,-^ |
     g,2 c4-^ a,-^ |
     as,-^ as,-^ as,( g,) |
 
     f,( f) bes,-^ bes-^ |
-    f8-- f,4-> d4.->( fis4) |
+    f8-- f,4.-> d4->( fis) |
     g2 c4-^ c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
   }
@@ -973,17 +1113,17 @@ bassoNotes_Coda = {
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
-    c4-^ g-^ e8-- e-- c-- g-- |
+    c4-- g-^ e8-- e-- c-- g-- |
     f2-> bes,4-^ a,-^ |
     g,2 c4-^ a,-^ |
     as,-^ as,-^ as,( g,) |
 
     f,( f) bes,-^ bes-^ |
-    f8-- f,4-> d4.->( fis4) |
+    f8-- f,4.-> d4->( fis) |
     g2 c4-^ c8-- f-^ |
-    r es4.-> d8-- d-- cis-- cis-- |
+    r es4.-> d8-- d-- cis-- cis-^ |
 
-    c-- as,-- a,-- f,-- r4 r8 f->\p~ |
+    c-- as,-- a,-- f,-^ r4 r8 f->\p~ |
     f1\fermata
   }
 }
@@ -1006,12 +1146,8 @@ bassoLyrics_VerseI = \lyricmode {
   di -- dl, du -- dl, da --dl, |
   schrum, schrum, schrum, |
   geht schon der |
-
-%  Hop -- ser 'rum, di da -- dl |
-%  dum, hei -- ßa, Ka -- |
   Hop -- ser 'rum, |
   hei -- ßa, Ka -- |
-
   threi -- ner -- le, |
   frisch im -- mer zu! |
   Schrum, du -- dl, da -- dl, di |
@@ -1029,8 +1165,8 @@ bassoLyrics_VerseII = \lyricmode {
   di -- dl, du -- dl, da -- dl, |
   schrum, schrum, schrum, |
   lus -- tig im |
-  Kreis he -- rum, di da -- dl |
-  dum, dreh dich, mein |
+  Kreis he -- rum, |
+  dreh dich, mein |
   Mä -- del, im |
   fest -- li -- chen Glanz. |
   Schrum, du -- dl, da -- dl, di |
@@ -1111,8 +1247,10 @@ chords_Soli = {
         { \rhythmMark #"Swing" \rhyMarkIIEighths \rhyMarkSlurredTriplets } { \global_Intro } { \sopranoNotes_Intro}
       >>
       \context Lyrics = sopranoLyrics_Intro \lyricsto soprano_Intro { \sopranoLyrics_Intro }
-      \context Voice = alto_Intro << { \global_Intro } { \altoNotes_Intro } >>
-      \context Lyrics = altoLyrics_Intro \lyricsto alto_Intro { \altoLyrics_Intro }
+      \context Voice = altoI_Intro << { \global_Intro } { \altoINotes_Intro } >>
+      \context Lyrics = altoILyrics_Intro \lyricsto altoI_Intro { \altoILyrics_Intro }
+      \context Voice = altoII_Intro << { \global_Intro } { \altoIINotes_Intro } >>
+      \context Lyrics = altoIILyrics_Intro \lyricsto altoII_Intro { \altoIILyrics_Intro }
       \context Voice = tenore_Intro << { \global_Intro } { \tenoreNotes_Intro } >>
       \context Lyrics = tenoreLyrics_Intro \lyricsto tenore_Intro { \tenoreLyrics_Intro }
       \context Voice = basso_Intro << { \global_Intro } { \bassoNotes_Intro } >>
@@ -1138,7 +1276,8 @@ chords_Soli = {
 %    \set Score.currentBarNumber = #5
 %    \context ChoirStaff = choirStaff <<
 %      \context Voice = soprano_VerseI << { \global_VerseI } { \sopranoNotes_Debug} >>
-%      \context Voice = alto_VerseI << { \global_VerseI } { \altoNotes_Debug } >>
+%      \context Voice = altoI_VerseI << { \global_VerseI } { \altoINotes_Debug } >>
+%      \context Voice = altoII_VerseI << { \global_VerseI } { \altoIINotes_Debug } >>
 %      \context Voice = tenore_VerseI << { \global_VerseI } { \tenoreNotes_Debug } >>
 %      \context Voice = basso_VerseI << { \global_VerseI } { \bassoNotes_Debug } >>
 %    >>
@@ -1171,8 +1310,10 @@ chords_Soli = {
     \context ChoirStaff = choirStaff <<
       \context Voice = soprano_VerseI << { \global_VerseI } { \sopranoNotes_VerseI} >>
       \context Lyrics = sopranoLyrics_VerseI \lyricsto soprano_VerseI { \sopranoLyrics_VerseI }
-      \context Voice = alto_VerseI << { \global_VerseI } { \altoNotes_VerseI } >>
-      \context Lyrics = altoLyrics_VerseI \lyricsto alto_VerseI { \altoLyrics_VerseI }
+      \context Voice = altoI_VerseI << { \global_VerseI } { \altoINotes_VerseI } >>
+      \context Lyrics = altoILyrics_VerseI \lyricsto altoI_VerseI { \altoILyrics_VerseI }
+      \context Voice = altoII_VerseI << { \global_VerseI } { \altoIINotes_VerseI } >>
+      \context Lyrics = altoIILyrics_VerseI \lyricsto altoII_VerseI { \altoIILyrics_VerseI }
       \context Voice = tenore_VerseI << { \global_VerseI } { \tenoreNotes_VerseI } >>
       \context Lyrics = tenoreLyrics_VerseI \lyricsto tenore_VerseI { \tenoreLyrics_VerseI }
       \context Voice = basso_VerseI << { \global_VerseI } { \bassoNotes_VerseI } >>
@@ -1200,8 +1341,10 @@ chords_Soli = {
     \context ChoirStaff = choirStaff <<
       \context Voice = soprano_VerseII << { \global_VerseII } { \sopranoNotes_VerseII} >>
       \context Lyrics = sopranoLyrics_VerseII \lyricsto soprano_VerseII { \sopranoLyrics_VerseII }
-      \context Voice = alto_VerseII << { \global_VerseII } { \altoNotes_VerseII } >>
-      \context Lyrics = altoLyrics_VerseII \lyricsto alto_VerseII { \altoLyrics_VerseII }
+      \context Voice = altoI_VerseII << { \global_VerseII } { \altoINotes_VerseII } >>
+      \context Lyrics = altoILyrics_VerseII \lyricsto altoI_VerseII { \altoILyrics_VerseII }
+      \context Voice = altoII_VerseII << { \global_VerseII } { \altoIINotes_VerseII } >>
+      \context Lyrics = altoIILyrics_VerseII \lyricsto altoII_VerseII { \altoIILyrics_VerseII }
       \context Voice = tenore_VerseII << { \global_VerseII } { \tenoreNotes_VerseII } >>
       \context Lyrics = tenoreLyrics_VerseII \lyricsto tenore_VerseII { \tenoreLyrics_VerseII }
       \context Voice = basso_VerseII << { \global_VerseII } { \bassoNotes_VerseII } >>
@@ -1230,8 +1373,10 @@ chords_Soli = {
 %      \context ChordNames = chordNames << { \global_Soli } { \chords_Soli } >>
 %      \context Voice = soprano_Soli << { \global_Soli } { \sopranoNotes_Soli } >>
 %      \context Lyrics = sopranoLyrics_Soli \lyricsto soprano_Soli { \sopranoLyrics_Soli }
-%      \context Voice = alto_Soli << { \global_Soli } { \altoNotes_Soli } >>
-%      \context Lyrics = altoLyrics_Soli \lyricsto alto_Soli { \altoLyrics_Soli }
+%      \context Voice = altoI_Soli << { \global_Soli } { \altoINotes_Soli } >>
+%      \context Lyrics = altoILyrics_Soli \lyricsto altoI_Soli { \altoILyrics_Soli }
+%      \context Voice = altoII_Soli << { \global_Soli } { \altoIINotes_Soli } >>
+%      \context Lyrics = altoIILyrics_Soli \lyricsto altoII_Soli { \altoIILyrics_Soli }
 %      \context Voice = tenore_Soli << { \global_Soli } { \tenoreNotes_Soli } >>
 %      \context Lyrics = tenoreLyrics_Soli \lyricsto tenore_Soli { \tenoreLyrics_Soli }
 %      \context Voice = basso_Soli << { \global_Soli } { \bassoNotes_Soli } >>
@@ -1254,8 +1399,10 @@ chords_Soli = {
     \context ChoirStaff = choirStaff <<
       \context Voice = soprano_Coda << { \global_Coda } { \sopranoNotes_Coda} >>
       \context Lyrics = sopranoLyrics_Coda \lyricsto soprano_Coda { \sopranoLyrics_Coda }
-      \context Voice = alto_Coda << { \global_Coda } { \altoNotes_Coda } >>
-      \context Lyrics = altoLyrics_Coda \lyricsto alto_Coda { \altoLyrics_Coda }
+      \context Voice = altoI_Coda << { \global_Coda } { \altoINotes_Coda } >>
+      \context Lyrics = altoILyrics_Coda \lyricsto altoI_Coda { \altoILyrics_Coda }
+      \context Voice = altoII_Coda << { \global_Coda } { \altoIINotes_Coda } >>
+      \context Lyrics = altoIILyrics_Coda \lyricsto altoII_Coda { \altoIILyrics_Coda }
       \context Voice = tenore_Coda << { \global_Coda } { \tenoreNotes_Coda } >>
       \context Lyrics = tenoreLyrics_Coda \lyricsto tenore_Coda { \tenoreLyrics_Coda }
       \context Voice = basso_Coda << { \global_Coda } { \bassoNotes_Coda } >>
