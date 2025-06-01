@@ -9,7 +9,7 @@
   source     = "autograph"
   poet       = "Text: Klemens Neumann (1873-1928)"
   composer   = "Weise: Anonymous (ca. 14. Jahrh.)"
-  arranger   = "Arr.: Jürgen Reuter (*1971)"
+  arranger   = "Arr.: Jürgen Reuter (2025)"
   enteredby  = "Jürgen Reuter"
   copyright  = "All Rights Reserved."
   subtitle   = "aus dem Liederbuch „Der Spielmann“"
@@ -17,6 +17,20 @@
 
 #(ly:set-option 'clip-systems)
 #(set-global-staff-size 20)
+
+%#(set! my-instrument-equalizer-alist
+%  (append
+%   '(
+%     ("soprano sax" . (0.5 . 0.5))
+%     ("alto sax" . (0.5 . 0.5))
+%     ("tenor sax" . (0.5 . 0.5))
+%     ("baritone sax" . (0.5 . 0.5)))
+%   my-instrument-equalizer-alist))
+%
+%#(define (my-instrument-equalizer s)
+%  (let ((entry (assoc s my-instrument-equalizer-alist)))
+%   (if entry
+%    (cdr entry))))
 
 \layout {
     inputencoding = "utf-8"
@@ -112,6 +126,7 @@ directionNeutral = { \stemNeutral \tieNeutral \slurNeutral }
 global_Intro = {
   \key f \major
   \time 4/4
+%  \set Score.instrumentEqualizer = #my-instrument-equalizer
   \set Timing.beamExceptions = #'()
   \set Timing.baseMoment = #(ly:make-moment 1/4)
   \set Timing.beatStructure = #'(1 1 1 1)
@@ -153,6 +168,22 @@ sopranoNotes_Intro = {
   }
 }
 
+sopranoNotes_Debug = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 e4-^ e8-- g-- g-- e-- e-- |
+    f4-^ c'8-- c'~-> c'4 r |
+    r8 e4.-> g4-^ e-^ |
+    f-- c'8-- c'~-> c'4 r |
+
+    r8 f'4.-> c'4-^ c'-^ |
+    c'-- bes8-- a->~ a2 |
+    r8 bes4.-> a4-^ g8-- f->~ |
+    f4 r4 r2 |
+  }
+}
+
 sopranoNotes_VerseI = {
   \transpose c' c'' {
     \override Script.direction = #UP
@@ -161,14 +192,17 @@ sopranoNotes_VerseI = {
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 e4-^ e8-- g-- g-- e-- e-- |
     f4-^ c'8-- c'~-> c'4 r |
     r8 e4.-> g4-^ e-^ |
     f-- c'8-- c'~-> c'4 r |
+
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ g8-- f->~ |
@@ -184,14 +218,17 @@ sopranoNotes_VerseII = {
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 e4-^ e8-- g-- g-- e-- e-- |
     f4-^ c'8-- c'~-> c'4 r |
     r8 e4.-> g4-^ e-^ |
     f-- c'8-- c'~-> c'4 r |
+
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ g8-- f->~ |
@@ -233,31 +270,34 @@ sopranoNotes_Coda = {
   \transpose c' c'' {
     \override Script.direction = #UP
     \clef "treble"
-    \break \mark \markup {
-      \line {
-	\musicglyph #"scripts.coda"
-	\musicglyph #"scripts.tenuto"
-	\musicglyph #"scripts.coda"
-      }
-    }
+%    \break \mark \markup {
+%      \line {
+%        \musicglyph #"scripts.coda"
+%        \musicglyph #"scripts.tenuto"
+%        \musicglyph #"scripts.coda"
+%      }
+%    }
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ as8-- a->~ |
     a2 r |
+
     r8 e4-^ e8-- g-- g-- e-- e-- |
     f4-^ c'8-- c'~-> c'4 r |
     r8 e4.-> g4-^ e-^ |
+
     f-- c'8-- c'~-> c'4 r |
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
     r8 bes4.-> a4-^ g8-- f->~ |
     f4 r4 r2 |
 
-    r2 r4 r8 g8~-> |
+    r2 r4 r8 g8\p~-> |
     g1\fermata |
   }
 }
@@ -330,7 +370,7 @@ sopranoLyrics_Coda = \lyricmode {
   schrum, schrum, schrum, |
   Mor -- gen mit |
   viel Ge -- brumm |
-  Fegt die Frau |
+  fegt die Frau |
   Wir -- tin den |
   Tanz -- bo -- den aus. |
   |
@@ -351,6 +391,27 @@ altoNotes_Intro = {
   }
 }
 
+altoNotes_Debug = {
+  \transpose c' c'' {
+    \override Script.direction = #UP
+    \clef "treble"
+    r8 c4-^ c8-- c-- c-- c-- c-- |
+    << \new Voice { \voiceOne d2-> f4-^ e-^ }
+       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
+    << \new Voice { \voiceOne d2 e4-^ e-^ }
+       \new Voice { \voiceTwo b,2 c4-^ cis-^ } >> |
+    << \new Voice { \voiceOne f4-^ f-^ f( e) }
+       \new Voice { \voiceTwo c?4-^ c-^ c( b,) } >> |
+
+    << \new Voice { \voiceOne d4( d') }
+       \new Voice { \voiceTwo a,( a) } >>
+    as4-^ as-^ |
+    a?-- g8-- fis4.->( d4) |
+    r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
+    << { d4 } { c4 } >> r4 r2 |
+  }
+}
+
 altoNotes_VerseI = {
   \transpose c' c'' {
     \override Script.direction = #UP
@@ -363,6 +424,7 @@ altoNotes_VerseI = {
       { d4.-> c4-^ d8-- c->~ |
         c2 }
     >> r2 |
+
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
     r8 <<
@@ -372,12 +434,23 @@ altoNotes_VerseI = {
         c2 }
     >> r2 |
 
+% FIXME: Below, we should say something like:
+%
+%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
+%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
+%
+% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { d4-^ d-^ f( e) } { bes,4-^ bes,-^ d( cis) } >> |
-    << { d2 e4. e8-- } { b,2 c4. c8-- } >> |
-    << { d4-- d8-- a->~ a4( g) } { c4-- c8-- e->~ e2 } >> |
+    << { \voiceOne d2-> f4-^ e-^ }
+       { \voiceOne bes,2-> d4-^ cis-^ } >> |
+    << { \voiceOne d2 e4-^ e-^ }
+       { \voiceOne b,2 c4-^ cis-^ } >> |
+    << { \voiceOne f4-^ f-^ f( e) }
+       { \voiceOne c?4-^ c-^ c( b,) } >> |
 
-    r8 a4.-> as4-^ as-^ |
+    << { \voiceOne d4( d') }
+       { \voiceOne a,( a) } >>
+    as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
     r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
     << { d4 } { c4 } >> r4 r2 |
@@ -396,6 +469,7 @@ altoNotes_VerseII = {
       { d4.-> c4-^ d8-- c->~ |
         c2 }
     >> r2 |
+
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
     r8 <<
@@ -405,12 +479,23 @@ altoNotes_VerseII = {
         c2 }
     >> r2 |
 
+% FIXME: Below, we should say something like:
+%
+%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
+%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
+%
+% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { d4-^ d-^ f( e) } { bes,4-^ bes,-^ d( cis) } >> |
-    << { d2 e4. e8-- } { b,2 c4. c8-- } >> |
-    << { d4-- d8-- a->~ a4( g) } { c4-- c8-- e->~ e2 } >> |
+    << { \voiceOne d2-> f4-^ e-^ }
+       { \voiceOne bes,2-> d4-^ cis-^ } >> |
+    << { \voiceOne d2 e4-^ e-^ }
+       { \voiceOne b,2 c4-^ cis-^ } >> |
+    << { \voiceOne f4-^ f-^ f( e) }
+       { \voiceOne c?4-^ c-^ c( b,) } >> |
 
-    r8 a4.-> as4-^ as-^ |
+    << { \voiceOne d4( d') }
+       { \voiceOne a,( a) } >>
+    as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
     r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
     << { d4 } { c4 } >> r4 r2 |
@@ -452,6 +537,7 @@ altoNotes_Coda = {
       { d4.-> c4-^ d8-- c->~ |
         c2 }
     >> r2 |
+
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
     r8 <<
@@ -461,17 +547,28 @@ altoNotes_Coda = {
         c2 }
     >> r2 |
 
+% FIXME: Below, we should say something like:
+%
+%    << \new Voice { \voiceOne d2-> f4-^ e-^ }
+%       \new Voice { \voiceTwo bes,2-> d4-^ cis-^ } >> |
+%
+% but this will break alignment of lyrics.
     r8 c4-^ c8-- c-- c-- c-- c-- |
-    << { d4-^ d-^ f( e) } { bes,4-^ bes,-^ d( cis) } >> |
-    << { d2 e4. e8-- } { b,2 c4. c8-- } >> |
-    << { d4-- d8-- a->~ a4( g) } { c4-- c8-- e->~ e2 } >> |
+    << { \voiceOne d2-> f4-^ e-^ }
+       { \voiceOne bes,2-> d4-^ cis-^ } >> |
+    << { \voiceOne d2 e4-^ e-^ }
+       { \voiceOne b,2 c4-^ cis-^ } >> |
+    << { \voiceOne f4-^ f-^ f( e) }
+       { \voiceOne c?4-^ c-^ c( b,) } >> |
 
-    r8 a4.-> as4-^ as-^ |
+    << { \voiceOne d4( d') }
+       { \voiceOne a,( a) } >>
+    as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
     r8 << { d4.-> e4-^ e8-- d~-> } { bes,4.-> c4-^ c8-- c-> } >> |
     << { d4 } { c4 } >> r4 r2 |
 
-    r2 r4 r8 <e c>8~-> |
+    r2 r4 r8 <e c>8\p~-> |
     <e c>1\fermata |
   }
 }
@@ -541,7 +638,7 @@ altoLyrics_Coda = \lyricmode {
   schrum, schrum, schrum, |
   Mor -- gen mit |
   viel Ge -- brumm |
-  Fegt die Frau |
+  fegt die Frau |
   Wir -- tin den |
   Tanz -- bo -- den aus. |
   |
@@ -557,8 +654,24 @@ tenoreNotes_Intro = {
     \clef "treble_8"
     es'4.-> es'8-^ r2 |
     d'4.-> d'8-^ r2 |
-    bes4.-> bes8-^ r4 a8-- a-^ |
+    bes4.-> bes8-^ r4 bes8-- a-^ |
     R1 |
+  }
+}
+
+tenoreNotes_Debug = {
+  \transpose c' c' {
+    \override Script.direction = #UP
+    \clef "treble_8"
+    r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
+    as2-> as4-^ g-^ |
+    f2 bes4-^ g-^ |
+    ges4-^ ges-^ ges( f) |
+
+    es4( es'4) d'4-^ d'-^ |
+    e'?4-- e'8-- c'->~ c'2 |
+    r8 f4.-> bes4-^ bes8-- a~-> |
+    a4 r4 r2 |
   }
 }
 
@@ -570,15 +683,18 @@ tenoreNotes_VerseI = {
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
-    as4-^ as-^ as( g) |
-    f2 bes4-^ bes-^ |
-    a4-- a8-- bes->~ bes4 r4 |
-    r8 es'4.-> d'4-^ d'-^ |
+    as2-> as4-^ g-^ |
+    f2 bes4-^ g-^ |
+    ges4-^ ges-^ ges( f) |
+
+    es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 f4.-> bes4-^ bes8-- a~-> |
     a4 r4 r2 |
@@ -593,15 +709,18 @@ tenoreNotes_VerseII = {
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
-    as4-^ as-^ as( g) |
-    f2 bes4-^ bes-^ |
-    a4-- a8-- bes->~ bes4 r4 |
-    r8 es'4.-> d'4-^ d'-^ |
+    as2-> as4-^ g-^ |
+    f2 bes4-^ g-^ |
+    ges4-^ ges-^ ges( f) |
+
+    es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 f4.-> bes4-^ bes8-- a~-> |
     a4 r4 r2 |
@@ -639,20 +758,23 @@ tenoreNotes_Coda = {
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 as4.-> bes4-^ bes8-- c'8->~ |
     c'2 r |
+
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
-    as4-^ as-^ as( g) |
-    f2 bes4-^ bes-^ |
-    a4-- a8-- bes->~ bes4 r4 |
-    r8 es'4.-> d'4-^ d'-^ |
+    as2-> as4-^ g-^ |
+    f2 bes4-^ g-^ |
+    ges4-^ ges-^ ges( f) |
+
+    es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
     r8 f4.-> bes4-^ bes8-- a~-> |
     a4 r4 r2 |
 
-    r2 r4 r8 as8~-> |
+    r2 r4 r8 as8\p~-> |
     as1\fermata |
   }
 }
@@ -722,7 +844,7 @@ tenoreLyrics_Coda = \lyricmode {
   schrum, schrum, schrum, |
   Mor -- gen mit |
   viel Ge -- brumm |
-  Fegt die Frau |
+  fegt die Frau |
   Wir -- tin den |
   Tanz -- bo -- den aus. |
   |
@@ -743,6 +865,22 @@ bassoNotes_Intro = {
   }
 }
 
+bassoNotes_Debug = {
+  \transpose c' c' {
+    \override Script.direction = #UP
+    \clef "bass"
+    c4-^ g-^ e8-- e-- c-- g-- |
+    f2-> bes,4-^ a,-^ |
+    g,2 c4-^ a,-^ |
+    as,-^ as,-^ as,( g,) |
+
+    f,( f) bes,-^ bes-^ |
+    f8-- f,4-> d4.->( fis4) |
+    g2 c4-^ c8-- f-^ |
+    r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
+  }
+}
+
 bassoNotes_VerseI = {
   \transpose c' c' {
     \override Script.direction = #UP
@@ -751,15 +889,18 @@ bassoNotes_VerseI = {
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
+
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
+
     c4-^ g-^ e8-- e-- c-- g-- |
-    f4-^ f-^ bes,( a,) |
-    g,2 c4-^ c-^ |
-    f4-- f8-- c8~-> c c-- d-- e-- |
-    f4-^ f,-^ bes,-^ bes-^ |
+    f2-> bes,4-^ a,-^ |
+    g,2 c4-^ a,-^ |
+    as,-^ as,-^ as,( g,) |
+
+    f,( f) bes,-^ bes-^ |
     f8-- f,4-> d4.->( fis4) |
     g2 c4-^ c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
@@ -774,15 +915,18 @@ bassoNotes_VerseII = {
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
+
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
+
     c4-^ g-^ e8-- e-- c-- g-- |
-    f4-^ f-^ bes,( a,) |
-    g,2 c4-^ c-^ |
-    f4-- f8-- c8~-> c c-- d-- e-- |
-    f4-^ f,-^ bes,-^ bes-^ |
+    f2-> bes,4-^ a,-^ |
+    g,2 c4-^ a,-^ |
+    as,-^ as,-^ as,( g,) |
+
+    f,( f) bes,-^ bes-^ |
     f8-- f,4-> d4.->( fis4) |
     g2 c4-^ c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
@@ -823,20 +967,23 @@ bassoNotes_Coda = {
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
+
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
     bes,( f,) c-^ d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
+
     c4-^ g-^ e8-- e-- c-- g-- |
-    f4-^ f-^ bes,( a,) |
-    g,2 c4-^ c-^ |
-    f4-- f8-- c8~-> c c-- d-- e-- |
-    f4-^ f,-^ bes,-^ bes-^ |
+    f2-> bes,4-^ a,-^ |
+    g,2 c4-^ a,-^ |
+    as,-^ as,-^ as,( g,) |
+
+    f,( f) bes,-^ bes-^ |
     f8-- f,4-> d4.->( fis4) |
     g2 c4-^ c8-- f-^ |
     r es4.-> d8-- d-- cis-- cis-- |
 
-    c-- as,-- a,-- f,-- r4 r8 f->~ |
+    c-- as,-- a,-- f,-- r4 r8 f->\p~ |
     f1\fermata
   }
 }
@@ -859,8 +1006,12 @@ bassoLyrics_VerseI = \lyricmode {
   di -- dl, du -- dl, da --dl, |
   schrum, schrum, schrum, |
   geht schon der |
-  Hop -- ser 'rum, di da -- dl |
-  dum, hei -- ßa, Ka -- |
+
+%  Hop -- ser 'rum, di da -- dl |
+%  dum, hei -- ßa, Ka -- |
+  Hop -- ser 'rum, |
+  hei -- ßa, Ka -- |
+
   threi -- ner -- le, |
   frisch im -- mer zu! |
   Schrum, du -- dl, da -- dl, di |
@@ -916,8 +1067,8 @@ bassoLyrics_Coda = \lyricmode {
   di -- dl, du -- dl, da -- dl, |
   schrum, schrum, schrum, |
   Mor -- gen mit |
-  viel Ge -- brumm, di da -- dl |
-  dum, fegt die Frau |
+  viel Ge -- brumm |
+  fegt die Frau |
   Wir -- tin den |
   Tanz -- bo -- den aus. |
   Schrum, di -- dl, da -- dl, |
@@ -957,7 +1108,7 @@ chords_Soli = {
     \context ChoirStaff = choirStaff <<
       \context Voice = soprano_Intro <<
         \tempo 4 = 120 - 132
-	{ \rhythmMark #"Swing" \rhyMarkIIEighths \rhyMarkSlurredTriplets } { \global_Intro } { \sopranoNotes_Intro}
+        { \rhythmMark #"Swing" \rhyMarkIIEighths \rhyMarkSlurredTriplets } { \global_Intro } { \sopranoNotes_Intro}
       >>
       \context Lyrics = sopranoLyrics_Intro \lyricsto soprano_Intro { \sopranoLyrics_Intro }
       \context Voice = alto_Intro << { \global_Intro } { \altoNotes_Intro } >>
@@ -972,8 +1123,45 @@ chords_Soli = {
     indent = 3.8\cm
   }
   \midi {
+    \context {
+      \Score
+      midiMinimumVolume = 0.5
+      midiMaximumVolume = 0.5
+    }
   }
 }
+
+%\score {
+%  {
+%    % Debug
+%    \override Score.TimeSignature.stencil = ##f
+%    \set Score.currentBarNumber = #5
+%    \context ChoirStaff = choirStaff <<
+%      \context Voice = soprano_VerseI << { \global_VerseI } { \sopranoNotes_Debug} >>
+%      \context Voice = alto_VerseI << { \global_VerseI } { \altoNotes_Debug } >>
+%      \context Voice = tenore_VerseI << { \global_VerseI } { \tenoreNotes_Debug } >>
+%      \context Voice = basso_VerseI << { \global_VerseI } { \bassoNotes_Debug } >>
+%    >>
+%  }
+%  \layout {
+%    indent = 0\cm
+%  }
+%  \midi {
+%    \tempo 4 = 72
+%    \context {
+%      \Score
+%      midiMinimumVolume = 0.5
+%      midiMaximumVolume = 0.5
+%    }
+%    \context {
+%      \Voice
+%      \remove Dynamic_performer
+%      \remove Midi_control_change_performer
+%      % TODO: Remove all ArticulationEvent objects from music
+%      % expression such that the Note_performer will ignore them.
+%    }
+%  }
+%}
 
 \score {
   {
@@ -996,6 +1184,11 @@ chords_Soli = {
   }
   \midi {
     \tempo 4 = 120
+    \context {
+      \Score
+      midiMinimumVolume = 0.5
+      midiMaximumVolume = 0.5
+    }
   }
 }
 
@@ -1020,33 +1213,38 @@ chords_Soli = {
   }
   \midi {
     \tempo 4 = 120
+    \context {
+      \Score
+      midiMinimumVolume = 0.5
+      midiMaximumVolume = 0.5
+    }
   }
 }
 
-\score {
-  {
-    % Section Soli
-    \override Score.TimeSignature.stencil = ##f
-    \set Score.currentBarNumber = #37
-    \context ChoirStaff = choirStaff <<
-      \context ChordNames = chordNames << { \global_Soli } { \chords_Soli } >>
-      \context Voice = soprano_Soli << { \global_Soli } { \sopranoNotes_Soli } >>
-      \context Lyrics = sopranoLyrics_Soli \lyricsto soprano_Soli { \sopranoLyrics_Soli }
-      \context Voice = alto_Soli << { \global_Soli } { \altoNotes_Soli } >>
-      \context Lyrics = altoLyrics_Soli \lyricsto alto_Soli { \altoLyrics_Soli }
-      \context Voice = tenore_Soli << { \global_Soli } { \tenoreNotes_Soli } >>
-      \context Lyrics = tenoreLyrics_Soli \lyricsto tenore_Soli { \tenoreLyrics_Soli }
-      \context Voice = basso_Soli << { \global_Soli } { \bassoNotes_Soli } >>
-      \context Lyrics = bassoLyrics_Soli \lyricsto basso_Soli { \bassoLyrics_Soli }
-    >>
-  }
-  \layout {
-    indent = 0\cm
-  }
-  \midi {
-    \tempo 4 = 120
-  }
-}
+% \score {
+%  {
+%    % Section Soli
+%    \override Score.TimeSignature.stencil = ##f
+%    \set Score.currentBarNumber = #37
+%    \context ChoirStaff = choirStaff <<
+%      \context ChordNames = chordNames << { \global_Soli } { \chords_Soli } >>
+%      \context Voice = soprano_Soli << { \global_Soli } { \sopranoNotes_Soli } >>
+%      \context Lyrics = sopranoLyrics_Soli \lyricsto soprano_Soli { \sopranoLyrics_Soli }
+%      \context Voice = alto_Soli << { \global_Soli } { \altoNotes_Soli } >>
+%      \context Lyrics = altoLyrics_Soli \lyricsto alto_Soli { \altoLyrics_Soli }
+%      \context Voice = tenore_Soli << { \global_Soli } { \tenoreNotes_Soli } >>
+%      \context Lyrics = tenoreLyrics_Soli \lyricsto tenore_Soli { \tenoreLyrics_Soli }
+%      \context Voice = basso_Soli << { \global_Soli } { \bassoNotes_Soli } >>
+%      \context Lyrics = bassoLyrics_Soli \lyricsto basso_Soli { \bassoLyrics_Soli }
+%    >>
+%  }
+%  \layout {
+%    indent = 0\cm
+%  }
+%  \midi {
+%    \tempo 4 = 120
+%  }
+%}
 
 \score {
   {
