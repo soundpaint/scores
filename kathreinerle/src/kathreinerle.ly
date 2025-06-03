@@ -190,12 +190,12 @@ sopranoNotes_VerseI = {
     \clef "treble"
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 e4-^ e8-- g-- g-- e-- e-- |
@@ -205,7 +205,7 @@ sopranoNotes_VerseI = {
 
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ g8-- f->~ |
+    r8 bes4.-> a4-- g8-- f->~ |
     f4 r4 r2 |
   }
 }
@@ -216,12 +216,12 @@ sopranoNotes_VerseII = {
     \clef "treble"
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 e4-^ e8-- g-- g-- e-- e-- |
@@ -231,7 +231,7 @@ sopranoNotes_VerseII = {
 
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ g8-- f->~ |
+    r8 bes4.-> a4-- g8-- f->~ |
     f4 r4 r2 |
   }
 }
@@ -279,12 +279,12 @@ sopranoNotes_Coda = {
 %    }
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ as8-- a->~ |
+    r8 bes4.-> a4-- as8-- a->~ |
     a2 r |
 
     r8 e4-^ e8-- g-- g-- e-- e-- |
@@ -294,7 +294,7 @@ sopranoNotes_Coda = {
     f-- c'8-- c'~-> c'4 r |
     r8 f'4.-> c'4-^ c'-^ |
     c'-- bes8-- a->~ a2 |
-    r8 bes4.-> a4-^ g8-- f->~ |
+    r8 bes4.-> a4-- g8-- f->~ |
     f4 r4 r2 |
 
     r2 r4 r8 g8\p~-> |
@@ -413,12 +413,12 @@ altoINotes_VerseI = {
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -428,7 +428,7 @@ altoINotes_VerseI = {
 
     d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 d4.-> e4-^ e8-- d~-> |
+    r8 d4.-> e4-- e8-- d~-> |
     d4 r r2 |
   }
 }
@@ -439,12 +439,12 @@ altoINotes_VerseII = {
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -454,7 +454,7 @@ altoINotes_VerseII = {
 
     d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 d4.-> e4-^ e8-- d~-> |
+    r8 d4.-> e4-- e8-- d~-> |
     d4 r r2 |
   }
 }
@@ -486,12 +486,12 @@ altoINotes_Coda = {
     \clef "treble"
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 a4.-> as4-^ as-^ |
     a?-- g8-- g->~( g4 f) |
-    r8 g4->^( f8) e4-^ f8-- g->~ |
+    r8 g4->^( f8) e4-- f8-- g->~ |
     g4^( f) r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -501,7 +501,7 @@ altoINotes_Coda = {
 
     d4( d') as4-^ as-^ |
     a?-- g8-- fis4.->( d4) |
-    r8 d4.-> e4-^ e8-- d~-> |
+    r8 d4.-> e4-- e8-- d~-> |
     d4 r r2 |
 
     r2 r4 r8 e\p~-> |
@@ -617,12 +617,12 @@ altoIINotes_VerseI = {
     \clef "treble"
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -632,7 +632,7 @@ altoIINotes_VerseI = {
 
     a,( a) f4-^ f-^ |
     f-- f8-- d8~-> d2 |
-    r8 bes,4.-> c4-^ c8-- c~-> |
+    r8 bes,4.-> c4-- c8-- c~-> |
     c4 r r2 |
   }
 }
@@ -643,12 +643,12 @@ altoIINotes_VerseII = {
     \clef "treble"
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -658,7 +658,7 @@ altoIINotes_VerseII = {
 
     a,( a) f4-^ f-^ |
     f-- f8-- d8~-> d2 |
-    r8 bes,4.-> c4-^ c8-- c~-> |
+    r8 bes,4.-> c4-- c8-- c~-> |
     c4 r r2 |
   }
 }
@@ -690,12 +690,12 @@ altoIINotes_Coda = {
     \clef "treble"
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 f4.-> f4-^ f-^ |
     f-- f8-- f->~f2 |
-    r8 d4.-> c4-^ d8-- c->~ |
+    r8 d4.-> c4-- d8-- c->~ |
     c2 r2 |
 
     r8 c4-^ c8-- c-- c-- c-- c-- |
@@ -705,7 +705,7 @@ altoIINotes_Coda = {
 
     a,( a) f4-^ f-^ |
     f-- f8-- d8~-> d2 |
-    r8 bes,4.-> c4-^ c8-- c~-> |
+    r8 bes,4.-> c4-- c8-- c~-> |
     c4 r r2 |
 
     r2 r4 r8 c\p~-> |
@@ -821,12 +821,12 @@ tenoreNotes_VerseI = {
     \clef "treble_8"
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
@@ -836,7 +836,7 @@ tenoreNotes_VerseI = {
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 f4.-> bes4-^ bes8-- a~-> |
+    r8 f4.-> bes4-- bes8-- a~-> |
     a4 r4 r2 |
   }
 }
@@ -847,12 +847,12 @@ tenoreNotes_VerseII = {
     \clef "treble_8"
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
@@ -862,7 +862,7 @@ tenoreNotes_VerseII = {
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 f4.-> bes4-^ bes8-- a~-> |
+    r8 f4.-> bes4-- bes8-- a~-> |
     a4 r4 r2 |
   }
 }
@@ -896,12 +896,12 @@ tenoreNotes_Coda = {
     \clef "treble_8"
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 es'4.-> d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 as4.-> bes4-^ bes8-- c'8->~ |
+    r8 as4.-> bes4-- bes8-- c'8->~ |
     c'2 r |
 
     r8 bes4-^ bes8-- bes-- bes-- bes-- bes-- |
@@ -911,7 +911,7 @@ tenoreNotes_Coda = {
 
     es4( es'4) d'4-^ d'-^ |
     e'?4-- e'8-- c'->~ c'2 |
-    r8 f4.-> bes4-^ bes8-- a~-> |
+    r8 f4.-> bes4-- bes8-- a~-> |
     a4 r4 r2 |
 
     r2 r4 r8 as8\p~-> |
@@ -1027,12 +1027,12 @@ bassoNotes_VerseI = {
     \clef "bass"
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
 
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
     c4-- g-^ e8-- e-- c-- g-- |
@@ -1042,7 +1042,7 @@ bassoNotes_VerseI = {
 
     f,( f) bes,-^ bes-^ |
     f8-- f,4.-> d4->( fis) |
-    g2 c4-^ c8-- f-^ |
+    g2 c4-- c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
   }
 }
@@ -1053,12 +1053,12 @@ bassoNotes_VerseII = {
     \clef "bass"
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
 
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
     c4-- g-^ e8-- e-- c-- g-- |
@@ -1068,7 +1068,7 @@ bassoNotes_VerseII = {
 
     f,( f) bes,-^ bes-^ |
     f8-- f,4.-> d4->( fis) |
-    g2 c4-^ c8-- f-^ |
+    g2 c4-- c8-- f-^ |
     r a,4.-> d8-- c-- \tuplet 3/2 4 { c8-- d-- e-- } |
   }
 }
@@ -1105,12 +1105,12 @@ bassoNotes_Coda = {
     \clef "bass"
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c a,8) c-- \tuplet 3/2 4 { c8-- d-- e-- } |
 
     f4-^ f,-^ bes,-^ bes-^ |
     f8-- f,4.-> f4( d) |
-    bes,( f,) c-^ d8-- f->(~ |
+    bes,( f,) c-- d8-- f->(~ |
     f4 c f8) f-- e-- d-- |
 
     c4-- g-^ e8-- e-- c-- g-- |
@@ -1120,8 +1120,8 @@ bassoNotes_Coda = {
 
     f,( f) bes,-^ bes-^ |
     f8-- f,4.-> d4->( fis) |
-    g2 c4-^ c8-- f-^ |
-    r es4.-> d8-- d-- cis-- cis-^ |
+    g2 c4-- c8-- f-^ |
+    r es4.-> d8-- d-- cis-- cis-- |
 
     c-- as,-- a,-- f,-^ r4 r8 f->\p~ |
     f1\fermata
