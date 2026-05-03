@@ -21,7 +21,7 @@
     }
   }
   arranger   = \markup {
-    \lower #4 { Arr.: Jürgen Reuter (1997) }
+    \lower #4 { Arr.: Jürgen Reuter (1997 / 2026) }
   }
   enteredby  = "Jürgen Reuter"
   copyright  = "All Rights Reserved."
@@ -39,30 +39,48 @@
 }
 
 global = {
-  \key e \dorian
+  \key e \minor
   \time 4/4
-  \tempo 4 = 96
   \set Score.voltaSpannerDuration = #(ly:make-moment 4/4)
-  \skip 1 * 16
-  % NOTE: "\unfoldRepeats" requires the MIDI tempo change
-  % effectively being performed in bar 17 (rather than
-  % in bar 9, as one might expect from looking at the
-  % printed score).
-  \tempo 4 = 120
-  \skip 1 * 1
+  \skip 1 * 17
   s1^\fermata
   \bar "|."
+}
+
+% NOTE: "\unfoldRepeats" requires the MIDI tempo change
+% effectively being performed in bar 17 (rather than
+% in bar 9, as one might expect from looking at the
+% printed score).  Therefore, we define disting
+% "globalScore" and "globalMidi" tempo definitions.
+
+globalScore = {
+  s1^\markup { \italic dolente }
+  \skip 1 * 11
+  s1^\markup { \italic accel. / \italic affrettando }
+  \skip 1 * 4
+  s4
+  s2.^\markup { repeat \italic { ad lib. } }
+}
+
+globalMidi = {
+  \tempo 4 = 96
+  \skip 1 * 16
+  \tempo 4 = 120
 }
 
 sopranoINotes = {
   \transpose c' c'' {
     \set Staff.instrumentName = "Soprano I "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "soprano sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "violin"
+    \set Staff.midiInstrument = "flute"
+    \set Staff.midiMinimumVolume = #0.5
+    \set Staff.midiMaximumVolume = #0.8
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
-      e4^\mp b8 b b4. ais8 |
+      e4\mp b8 b b4. ais8 |
       b2 r |
       b4 b a4. fis8 |
       a2 r |
@@ -78,21 +96,21 @@ sopranoINotes = {
         a2 b |
         g2. fis4 |
         e1~ |
-        e2. b,4^\f |
+        e |
       }
     }
     \repeat volta 2 {
-      d b b4. b8 |
-      d'4 cis' b2 |
+      b4\f e' e' e' |
+      b8 g'4 fis'8 e'2 |
     }
     \alternative {
       {
-        cis'4 a a a |
-        r8 a4 b8 a g fis e |
+        fis'4 d' d' d' |
+        r8 d'4 e'8 d' c' b( a) |
       }
       {
-        cis'4 a a cis' |
-        b1 |
+        fis'4 d' d' fis' |
+        e'1 |
       }
     }
   }
@@ -102,11 +120,15 @@ sopranoIINotes = {
   \transpose c' c'' {
     \set Staff.instrumentName = "Soprano II "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "soprano sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "violin"
+    \set Staff.midiInstrument = "oboe"
+    \set Staff.midiMinimumVolume = #0.3
+    \set Staff.midiMaximumVolume = #0.6
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
-      e4^\mp g8 g g4. fis8 |
+      e4\mp g8 g g4. fis8 |
       g2 r |
       g4 g fis4. e8 |
       fis2 r |
@@ -121,22 +143,22 @@ sopranoIINotes = {
       {
         fis2 g |
         e2. dis4 |
-        b,1~ |
-        b,2. b,4^\f |
+        e1~ |
+        e |
       }
     }
     \repeat volta 2 {
-      d fis fis4. fis8 |
-      b4 a gis2 |
+      g4\f b4 c' b |
+      b8 e'4 dis'8 e'2 |
     }
     \alternative {
       {
-        a4 fis fis fis |
-        d d cis8 cis cis cis |
+        d'4 a a a |
+        r8 a4 a8 a a g( fis) |
       }
       {
-        a4 fis fis a |
-        fis1 |
+        d'4 d' d' b |
+        b1 |
       }
     }
   }
@@ -146,11 +168,15 @@ altoNotes = {
   \transpose c' c'' {
     \set Staff.instrumentName = "Alto "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "alto sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "viola"
+    \set Staff.midiInstrument = "bassoon"
+    \set Staff.midiMinimumVolume = #0.3
+    \set Staff.midiMaximumVolume = #0.6
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
-      e4^\mp e8 e e4. e8 |
+      e4\mp e8 e e4. e8 |
       e2 r |
       e4 e e4. c8 |
       e2 r |
@@ -166,21 +192,21 @@ altoNotes = {
         e2 e |
         c2. b,4 |
         b,1~ |
-        b,2. b,4^\f |
+        b, |
       }
     }
     \repeat volta 2 {
-      d d d4. d8 |
-      fis4 fis fis2 |
+      e4\f e fis g |
+      b8 b4 c'8 b2 |
     }
     \alternative {
       {
-        fis4 e dis d |
-        b, b, a,8 a, a, a, |
+        a4 fis fis fis |
+        r8 fis4 g8 fis e fis( g) |
       }
       {
-        fis4 e dis d |
-        b,1
+        a4 e fis d |
+        e1 |
       }
     }
   }
@@ -190,12 +216,16 @@ tenorINotes = {
   \transpose c' c' {
     \set Staff.instrumentName = "Tenor I "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "tenor sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "cello"
+    \set Staff.midiInstrument = "trumpet"
+    \set Staff.midiMinimumVolume = #0.3
+    \set Staff.midiMaximumVolume = #0.6
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
       r1 |
-      e4^\mp b8 b b4. ais8 |
+      e4\mp b8 b b4. ais8 |
       b2 r |
       b4 b a4. fis8 |
     }
@@ -209,22 +239,22 @@ tenorINotes = {
       {
         a4 fis8 fis r4 g8 g |
         e4 fis g fis |
-        e1~ |
-        e2. b4^\f |
+        r2 g4 fis |
+        e1 |
       }
     }
     \repeat volta 2 {
-      b b b2~ |
-      b8 b d' d' d'2 |
+      e4\f b ais b |
+      e b c' b |
     }
     \alternative {
       {
-        e'4 cis' cis' cis' |
-        r4 a8 a a a a a |
+        d' d' e' d' |
+        a a a8 a a4 |
       }
       {
-        e'4 cis' cis' cis' |
-        b1 |
+        d'4 a b b |
+        e'1 |
       }
     }
   }
@@ -234,12 +264,16 @@ tenorIINotes = {
   \transpose c' c' {
     \set Staff.instrumentName = "Tenor II "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "tenor sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "cello"
+    \set Staff.midiInstrument = "trombone"
+    \set Staff.midiMinimumVolume = #0.3
+    \set Staff.midiMaximumVolume = #0.6
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
       r1 |
-      e4^\mp g8 g g4. fis8 |
+      e4\mp g8 g g4. fis8 |
       g2 r |
       fis4 fis fis4. e8 |
     }
@@ -253,22 +287,22 @@ tenorIINotes = {
       {
         fis4 e8 e r4 e8 e |
         c4 c c b, |
-        e1~ |
-        e2. b4^\f |
+        r2 c4 d |
+        e1 |
       }
     }
     \repeat volta 2 {
-      g g g2~ |
-      g8 g a a b4( gis) |
+      e4\f g fis g |
+      e g a g |
     }
     \alternative {
       {
-        fis4 fis fis fis |
-        r4 fis8 fis fis fis fis fis |
+        a b d' a |
+        d d e8 e fis4 |
       }
       {
         fis4 fis fis fis |
-        fis1 |
+        b1 |
       }
     }
   }
@@ -278,12 +312,16 @@ bassNotes = {
   \transpose c' c' {
     \set Staff.instrumentName = "Bass "
     \set Staff.shortInstrumentName = " "
-    \set Staff.midiInstrument = "baritone sax"
+    %\set Staff.midiInstrument = "acoustic grand"
+    %\set Staff.midiInstrument = "contrabass"
+    \set Staff.midiInstrument = "tuba"
+    \set Staff.midiMinimumVolume = #0.3
+    \set Staff.midiMaximumVolume = #0.6
     \override Script.direction = #UP
     \clef "bass"
     \repeat volta 2 {
       r1 |
-      e4^\mp e8 e e4. e8 |
+      e4\mp e8 e e4. e8 |
       e2 r |
       e4 e e4. c8 |
     }
@@ -297,22 +335,22 @@ bassNotes = {
       {
         e4 c8 c r4 b,8 b, |
         a,4 a, a, a, |
-        e1~ |
-        e2. b,4^\f |
+        r2 a,4 b, |
+        e1 |
       }
     }
     \repeat volta 2 {
-      g, g, g,2~ |
-      g,8 g, b, b, b,2 |
+      e4\f e e e |
+      e e e e |
     }
     \alternative {
       {
-        fis,4 fis, fis, fis, |
-        r4 b,8 b, b, b, b, b, |
+        d d d d |
+        d d d8 d d4 |
       }
       {
-        fis,4 fis, fis, fis, |
-        b,1 |
+        d4 d fis b, |
+        e1 |
       }
     }
   }
@@ -322,21 +360,21 @@ upperLyrics = \lyricmode {
   Kol ha' o- lam ku- |
   lo1 |
   ge- sher tzar me' |
-  od |
+  od, |
   % volta 1.1
   ge- sher tzar me' |
-  od |
+  od, |
   ge- sher tzar me' |
-  od |
+  od. |
   % volta 1.2
   ge- sher |
   tzar me' |
-  od v' |
-  ha' i- kar v' |
-  ha' i- kar |
+  od. |
+  V' ha' i- kar, |
+  v' ha' i- kar |
   % volta 2.1
-  lo l' fa- chet
-  lo l' fa- chet klal v' |
+  lo l' fa- chet,
+  lo l' fa- chet klal. |
   % volta 2.2
   lo l' fa- chet |
   klal. |
@@ -347,19 +385,20 @@ lowerLyrics = \lyricmode {
   lo1 |
   ge- sher tzar me' |
   % volta 1.1
-  od |
+  od, |
   ge- sher tzar me' |
-  od |
-  ge- sher tzar me' od |
+  od, |
+  ge- sher tzar me' od. |
   % volta 1.2
-  od ge- sher ge- sher |
-  ge- sher tzar me' |
-  od v' |
-  ha' i- kar
+  od, ge- sher, ge- sher, |
+  ge- sher, ge- sher |
+  tzar me' |
+  od. |
+  V' ha' i- kar,
   v' ha' i- kar |
   % volta 2.1
-  lo l' fa- chet
-  lo l' fa- chet klal v' |
+  lo l' fa- chet,
+  lo l' fa- chet klal. |
   % volta 2.2
   lo l' fa- chet |
   klal. |
@@ -367,9 +406,9 @@ lowerLyrics = \lyricmode {
 
 theMusic =
   {
-    \override Score.BarNumber.break-visibility = #all-invisible
     \context ChoirStaff = choirStaff <<
       \context Voice = sopranoI <<
+        { \globalScore }
         { \global } { \sopranoINotes }
       >>
       \context Lyrics = sopranoILyrics \lyricsto sopranoI { \upperLyrics }
@@ -419,14 +458,11 @@ theMusic =
 
 \score {
   \unfoldRepeats
-  \theMusic
-  \midi {
-    \context {
-      \Score
-      midiMinimumVolume = 0.5
-      midiMaximumVolume = 0.5
-    }
-  }
+  <<
+    \globalMidi
+    \theMusic
+  >>
+  \midi { }
 }
 
 %  Local Variables:
