@@ -21,7 +21,7 @@
     }
   }
   arranger   = \markup {
-    \lower #4 { Arr.: Jürgen Reuter (1997 / 2026) }
+    \lower #4 { Arr.: Jürgen Reuter (1997, 2026) }
   }
   enteredby  = "Jürgen Reuter"
   copyright  = "All Rights Reserved."
@@ -56,10 +56,10 @@ global = {
 globalScore = {
   s1^\markup { \italic dolente }
   \skip 1 * 11
-  s1^\markup { \italic accel. / \italic affrettando }
+  s1^\markup { \italic { accel. vel affrettando } }
   \skip 1 * 4
   s4
-  s2.^\markup { repeat \italic { ad lib. } }
+  s2.^\markup { \italic { ripetizione  ad lib. } }
 }
 
 globalMidi = {
@@ -77,6 +77,7 @@ sopranoINotes = {
     \set Staff.midiInstrument = "flute"
     \set Staff.midiMinimumVolume = #0.5
     \set Staff.midiMaximumVolume = #0.8
+    \set Staff.midiPanPosition = #-1.0
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
@@ -125,6 +126,7 @@ sopranoIINotes = {
     \set Staff.midiInstrument = "oboe"
     \set Staff.midiMinimumVolume = #0.3
     \set Staff.midiMaximumVolume = #0.6
+    \set Staff.midiPanPosition = #-0.6
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
@@ -173,6 +175,7 @@ altoNotes = {
     \set Staff.midiInstrument = "bassoon"
     \set Staff.midiMinimumVolume = #0.3
     \set Staff.midiMaximumVolume = #0.6
+    \set Staff.midiPanPosition = #-0.2
     \override Script.direction = #UP
     \clef "treble"
     \repeat volta 2 {
@@ -221,6 +224,7 @@ tenorINotes = {
     \set Staff.midiInstrument = "trumpet"
     \set Staff.midiMinimumVolume = #0.3
     \set Staff.midiMaximumVolume = #0.6
+    \set Staff.midiPanPosition = #0.2
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
@@ -269,6 +273,7 @@ tenorIINotes = {
     \set Staff.midiInstrument = "trombone"
     \set Staff.midiMinimumVolume = #0.3
     \set Staff.midiMaximumVolume = #0.6
+    \set Staff.midiPanPosition = #0.6
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
@@ -317,6 +322,7 @@ bassNotes = {
     \set Staff.midiInstrument = "tuba"
     \set Staff.midiMinimumVolume = #0.3
     \set Staff.midiMaximumVolume = #0.6
+    \set Staff.midiPanPosition = #1.0
     \override Script.direction = #UP
     \clef "bass"
     \repeat volta 2 {
@@ -356,9 +362,33 @@ bassNotes = {
   }
 }
 
-upperLyrics = \lyricmode {
+upperLyricsHebrew = \lyricmode {
+  כָּל  הָעוֹ לָ ם   כֻּ
+  לּוֹ
+  גֶּ שֶׁר  צַר  מְאוֹ
+  ד
+  % volta 1.1
+  גֶּ שֶׁר  צַר  מְאוֹ
+  ד
+  גֶּ שֶׁר  צַר  מְאוֹ
+  ד
+  % volta 1.2
+  גֶּ שֶׁר
+  צַר  מְאוֹ
+  ד
+  וְהָ עִ קָּ ר
+  וְהָ עִ קָּ ר
+  % volta 2.1
+  לֹא  לְ פַחֵ ד
+  לֹא  לְ פַחֵ ד  כְּלָל
+  % volta 2.2
+  לֹא  לְ פַחֵ ד
+  כְּלָל
+}
+
+upperLyricsTranscribed = \lyricmode {
   Kol ha' o- lam ku- |
-  lo1 |
+  lo |
   ge- sher tzar me' |
   od, |
   % volta 1.1
@@ -380,9 +410,32 @@ upperLyrics = \lyricmode {
   klal. |
 }
 
-lowerLyrics = \lyricmode {
+lowerLyricsHebrew = \lyricmode {
+  כָּל  הָעוֹ לָ ם   כֻּ
+  לּוֹ
+  גֶּ שֶׁר  צַר  מְאוֹ
+  % volta 1.1
+  ד
+  גֶּ שֶׁר  צַר  מְאוֹ
+  גֶּ שֶׁר  צַר  מְאוֹ  ד
+  % volta 1.2
+  ד  גֶּ שֶׁר  גֶּ שֶׁר
+  גֶּ שֶׁר  גֶּ שֶׁר
+  צַר  מְאוֹ
+  ד
+  וְהָ עִ קָּ ר
+  וְהָ עִ קָּ ר
+  % volta 2.1
+  לֹא  לְ פַחֵ ד
+  לֹא  לְ פַחֵ ד  כְּלָל
+  % volta 2.2
+  לֹא  לְ פַחֵ ד
+  כְּלָל
+}
+
+lowerLyricsTranscribed = \lyricmode {
   Kol ha' o- lam ku- |
-  lo1 |
+  lo |
   ge- sher tzar me' |
   % volta 1.1
   od, |
@@ -411,27 +464,33 @@ theMusic =
         { \globalScore }
         { \global } { \sopranoINotes }
       >>
-      \context Lyrics = sopranoILyrics \lyricsto sopranoI { \upperLyrics }
+      \context Lyrics = sopranoILyricsH \lyricsto sopranoI { \upperLyricsHebrew }
+      \context Lyrics = sopranoILyricsT \lyricsto sopranoI { \upperLyricsTranscribed }
       \context Voice = sopranoII <<
         { \global } { \sopranoIINotes }
       >>
-      \context Lyrics = sopranoIILyrics \lyricsto sopranoII { \upperLyrics }
+      \context Lyrics = sopranoIILyricsH \lyricsto sopranoII { \upperLyricsHebrew }
+      \context Lyrics = sopranoIILyricsT \lyricsto sopranoII { \upperLyricsTranscribed }
       \context Voice = alto <<
         { \global } { \altoNotes }
       >>
-      \context Lyrics = altoLyrics \lyricsto alto { \upperLyrics }
+      \context Lyrics = altoLyricsH \lyricsto alto { \upperLyricsHebrew }
+      \context Lyrics = altoLyricsT \lyricsto alto { \upperLyricsTranscribed }
       \context Voice = tenorI <<
         { \global } { \tenorINotes }
       >>
-      \context Lyrics = tenorILyrics \lyricsto tenorI { \lowerLyrics }
+      \context Lyrics = tenorILyricsH \lyricsto tenorI { \lowerLyricsHebrew }
+      \context Lyrics = tenorILyricsT \lyricsto tenorI { \lowerLyricsTranscribed }
       \context Voice = tenorII <<
         { \global } { \tenorIINotes }
       >>
-      \context Lyrics = tenorIILyrics \lyricsto tenorII { \lowerLyrics }
+      \context Lyrics = tenorIILyricsH \lyricsto tenorII { \lowerLyricsHebrew }
+      \context Lyrics = tenorIILyricsT \lyricsto tenorII { \lowerLyricsTranscribed }
       \context Voice = bass <<
         { \global } { \bassNotes }
       >>
-      \context Lyrics = bassLyrics \lyricsto bass { \lowerLyrics }
+      \context Lyrics = bassLyricsH \lyricsto bass { \lowerLyricsHebrew }
+      \context Lyrics = bassLyricsT \lyricsto bass { \lowerLyricsTranscribed }
     >>
   }
 
