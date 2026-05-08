@@ -24,7 +24,7 @@
     \lower #4 { Arr.: Jürgen Reuter (1997, 2026) }
   }
   enteredby  = "Jürgen Reuter"
-  copyright  = "All Rights Reserved."
+  % copyright  = ""
   % subtitle = ""
   % opus     = ""
   source     = "Autograph"
@@ -36,9 +36,14 @@
 
 \layout {
   inputencoding = "utf-8"
+  \context {
+    \Voice
+    \consists "Ambitus_engraver"
+    \ambitusAfter key-signature
+  }
 }
 
-global = {
+sharedVoiceMarkings = {
   \key e \minor
   \time 4/4
   \set Score.voltaSpannerDuration = #(ly:make-moment 4/4)
@@ -51,18 +56,21 @@ global = {
 % effectively being performed in bar 17 (rather than
 % in bar 9, as one might expect from looking at the
 % printed score).  Therefore, we define disting
-% "globalScore" and "globalMidi" tempo definitions.
+% "staffMarkings" and "midiMarkings" tempo definitions.
 
-globalScore = {
-  s1^\markup { \italic dolente }
-  \skip 1 * 11
-  s1^\markup { \italic { accel. vel affrettando } }
+staffMarkings = {
+  \tempo "Andante quasi timoroso"
+  \skip 1 * 12
+  \tempo "Affrettando o accel."
   \skip 1 * 4
   s4
-  s2.^\markup { \italic { ripetizione  ad lib. } }
+  % FIXME: Footnote on markup does not show; so just print
+  % the reference here and create the actual footnote
+  % elsewhere on a note event:
+  s2.^\markup { \italic { ripetizione  ad lib. \hspace #-1 \normal-text \super "*"  } }
 }
 
-globalMidi = {
+midiMarkings = {
   \tempo 4 = 96
   \skip 1 * 16
   \tempo 4 = 120
@@ -110,7 +118,12 @@ sopranoINotes = {
         r8 d'4 e'8 d' c' b( a) |
       }
       {
-        fis'4 d' d' fis' |
+        \once \override Score.Footnote.annotation-line = ##f
+        fis'4 d'
+        % FIXME: Here is the actual footnote that should be on the
+        % tempo markup but does not show up there.
+        \footnote "" #'(0 . 2) \markup \italic { \super "*" "Optionally, repeat as vocalise (“lai lai lai lai…”)." }
+        d' fis' |
         e'1 |
       }
     }
@@ -417,6 +430,7 @@ lowerLyricsHebrew = \lyricmode {
   % volta 1.1
   ד
   גֶּ שֶׁר  צַר  מְאוֹ
+  ד
   גֶּ שֶׁר  צַר  מְאוֹ  ד
   % volta 1.2
   ד  גֶּ שֶׁר  גֶּ שֶׁר
@@ -461,33 +475,39 @@ theMusic =
   {
     \context ChoirStaff = choirStaff <<
       \context Voice = sopranoI <<
-        { \globalScore }
-        { \global } { \sopranoINotes }
+        { \staffMarkings }
+        { \sharedVoiceMarkings }
+        { \sopranoINotes }
       >>
       \context Lyrics = sopranoILyricsH \lyricsto sopranoI { \upperLyricsHebrew }
       \context Lyrics = sopranoILyricsT \lyricsto sopranoI { \upperLyricsTranscribed }
       \context Voice = sopranoII <<
-        { \global } { \sopranoIINotes }
+        { \sharedVoiceMarkings }
+        { \sopranoIINotes }
       >>
       \context Lyrics = sopranoIILyricsH \lyricsto sopranoII { \upperLyricsHebrew }
       \context Lyrics = sopranoIILyricsT \lyricsto sopranoII { \upperLyricsTranscribed }
       \context Voice = alto <<
-        { \global } { \altoNotes }
+        { \sharedVoiceMarkings }
+        { \altoNotes }
       >>
       \context Lyrics = altoLyricsH \lyricsto alto { \upperLyricsHebrew }
       \context Lyrics = altoLyricsT \lyricsto alto { \upperLyricsTranscribed }
       \context Voice = tenorI <<
-        { \global } { \tenorINotes }
+        { \sharedVoiceMarkings }
+        { \tenorINotes }
       >>
       \context Lyrics = tenorILyricsH \lyricsto tenorI { \lowerLyricsHebrew }
       \context Lyrics = tenorILyricsT \lyricsto tenorI { \lowerLyricsTranscribed }
       \context Voice = tenorII <<
-        { \global } { \tenorIINotes }
+        { \sharedVoiceMarkings }
+        { \tenorIINotes }
       >>
       \context Lyrics = tenorIILyricsH \lyricsto tenorII { \lowerLyricsHebrew }
       \context Lyrics = tenorIILyricsT \lyricsto tenorII { \lowerLyricsTranscribed }
       \context Voice = bass <<
-        { \global } { \bassNotes }
+        { \sharedVoiceMarkings }
+        { \bassNotes }
       >>
       \context Lyrics = bassLyricsH \lyricsto bass { \lowerLyricsHebrew }
       \context Lyrics = bassLyricsT \lyricsto bass { \lowerLyricsTranscribed }
@@ -496,6 +516,45 @@ theMusic =
 
 \score {
   \theMusic
+}
+
+\markup {
+  \fill-line {
+    \column {
+      \line {
+        The whole world
+      }
+      \line {
+        is a very narrow bridge.
+      }
+      \line {
+        And the main thing is
+      }
+      \line {
+        not to be afraid at all.
+      }
+    }
+    \column \halign #RIGHT {
+      \line {
+        כל העולם כולו
+      }
+      \line {
+        גשר צר מאוד
+      }
+      \line {
+        והעיקר
+      }
+      \line {
+        לא לפחד כלל
+      }
+    }
+  }
+}
+
+% Workaround: Move up previous section of text
+% by adding another block of empty space.
+\markup {
+  \vspace #12
 }
 
 % For MIDI output, we need "\unfoldRepeats" to get it sound right.
@@ -518,7 +577,7 @@ theMusic =
 \score {
   \unfoldRepeats
   <<
-    \globalMidi
+    \midiMarkings
     \theMusic
   >>
   \midi { }
