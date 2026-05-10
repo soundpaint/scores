@@ -2,20 +2,22 @@
 
 \header {
   filename   = "kol-ha-olam-kulo.ly"
-  title      = "כל העולם כולו"
+  title      = \markup { \magnify #3 "כל העולם כולו" }
   subtitle   = "(Kol Ha'Olam Kulo)"
   instrument = "SSATTB"
   % meter    = ""
   date       = "1997-12-11"
   source     = "autograph"
   poet       = \markup {
-    Lyrics: \column {
+    \column { \vspace #0.5 "Lyrics: " }
+    \column \halign #RIGHT  {
       \line { רַבִּי נַחְמָן מִבְּרֶסְלֶב }
       \line { (Nachman of Breslov) }
     }
   }
   composer   = \markup {
-    Melody: \column {
+    \column { \vspace #0.5 "Melody: " }
+    \column \halign #RIGHT {
       \line { ברוך חייט }
       \line { (Baruch Chait) }
     }
@@ -99,13 +101,13 @@ sopranoINotes = {
         a4 a g4. e8 |
         g2 r |
         g4 e g4. a8 |
-        b1 |
+        b1 \breathe |
       }
       {
         a2 b |
         g2. fis4 |
         e1~ |
-        e |
+        e \breathe |
       }
     }
     \repeat volta 2 {
@@ -119,11 +121,7 @@ sopranoINotes = {
       }
       {
         \once \override Score.Footnote.annotation-line = ##f
-        fis'4 d'
-        % FIXME: Here is the actual footnote that should be on the
-        % tempo markup but does not show up there.
-        \footnote "" #'(0 . 2) \markup \italic { \super "*" "Optionally, repeat as vocalise (“lai lai lai lai…”)." }
-        d' fis' |
+        fis'4 d' d' fis' |
         e'1 |
       }
     }
@@ -153,13 +151,13 @@ sopranoIINotes = {
         fis4 fis e4. cis8 |
         e2 r |
         e4 e e4. e8 |
-        dis1 |
+        dis1 \breathe |
       }
       {
         fis2 g |
         e2. dis4 |
         e1~ |
-        e |
+        e \breathe |
       }
     }
     \repeat volta 2 {
@@ -202,13 +200,13 @@ altoNotes = {
         e4 c ais,4. ais,8 |
         ais,2 r |
         b,4 b, c4. c8 |
-        b,1
+        b,1 \breathe
       }
       {
         e2 e |
         c2. b,4 |
         b,1~ |
-        b, |
+        b, \breathe |
       }
     }
     \repeat volta 2 {
@@ -241,7 +239,7 @@ tenorINotes = {
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
-      r1 |
+      R1 |
       e4\mp b8 b b4. ais8 |
       b2 r |
       b4 b a4. fis8 |
@@ -257,7 +255,7 @@ tenorINotes = {
         a4 fis8 fis r4 g8 g |
         e4 fis g fis |
         r2 g4 fis |
-        e1 |
+        e1 \breathe |
       }
     }
     \repeat volta 2 {
@@ -290,7 +288,7 @@ tenorIINotes = {
     \override Script.direction = #UP
     \clef "treble_8"
     \repeat volta 2 {
-      r1 |
+      R1 |
       e4\mp g8 g g4. fis8 |
       g2 r |
       fis4 fis fis4. e8 |
@@ -306,7 +304,7 @@ tenorIINotes = {
         fis4 e8 e r4 e8 e |
         c4 c c b, |
         r2 c4 d |
-        e1 |
+        e1 \breathe |
       }
     }
     \repeat volta 2 {
@@ -339,7 +337,7 @@ bassNotes = {
     \override Script.direction = #UP
     \clef "bass"
     \repeat volta 2 {
-      r1 |
+      R1 |
       e4\mp e8 e e4. e8 |
       e2 r |
       e4 e e4. c8 |
@@ -355,7 +353,7 @@ bassNotes = {
         e4 c8 c r4 b,8 b, |
         a,4 a, a, a, |
         r2 a,4 b, |
-        e1 |
+        e1 \breathe |
       }
     }
     \repeat volta 2 {
@@ -515,38 +513,84 @@ theMusic =
   }
 
 \score {
-  \theMusic
+  <<
+    \theMusic
+    \new PianoStaff \with {
+      \consists "Volta_engraver"
+      instrumentName = \markup {
+        \column \halign #RIGHT { Piano { (rehearsal only) } }
+      }
+    }
+    <<
+      \new Staff {
+        <<
+          \sopranoINotes
+          \sopranoIINotes
+          \altoNotes
+          % remove voice name and ambitus, but keep key and fermata
+          \set Staff.instrumentName = ""
+          \new Voice \with {
+            \remove Ambitus_engraver
+          } {
+            \key e \minor
+            \skip 1 * 17
+            s1^\fermata
+          }
+        >>
+      }
+      \new Staff {
+        <<
+          \tenorINotes
+          \tenorIINotes
+          \bassNotes
+          % remove voice name and ambitus, but keep key and fermata
+          \set Staff.instrumentName = ""
+          \new Voice \with {
+            \remove Ambitus_engraver
+          } {
+            \key e \minor
+            \skip 1 * 17
+            s1
+            % FIXME: Here is the actual footnote that should be on the
+            % tempo markup but does not show up there.
+            \footnote "" #'(0 . 2) \markup \italic { \super "*" "Optionally, repeat as vocalise (“lai lai lai lai…”)." }
+            ^\fermata
+          }
+        >>
+      }
+    >>
+  >>
 }
 
 \markup {
-  \fill-line {
-    \column {
-      \line {
-        The whole world
-      }
-      \line {
-        is a very narrow bridge.
-      }
-      \line {
-        And the main thing is
-      }
-      \line {
-        not to be afraid at all.
-      }
+  \hspace #30
+  \column {
+    \line {
+      The whole world
     }
-    \column \halign #RIGHT {
-      \line {
-        כל העולם כולו
-      }
-      \line {
-        גשר צר מאוד
-      }
-      \line {
-        והעיקר
-      }
-      \line {
-        לא לפחד כלל
-      }
+    \line {
+      is a very narrow bridge.
+    }
+    \line {
+      And the main thing is
+    }
+    \line {
+      not to be afraid at all.
+    }
+  }
+  \hspace #10
+  \column \halign #RIGHT {
+    \line {
+      כל העולם כולו
+    }
+    \line {
+      גשר צר מאוד
+    }
+    \line {
+      והעיקר
+    }
+    \line {
+      לא לפחד כלל
     }
   }
 }
@@ -554,7 +598,7 @@ theMusic =
 % Workaround: Move up previous section of text
 % by adding another block of empty space.
 \markup {
-  \vspace #12
+  \vspace #8
 }
 
 % For MIDI output, we need "\unfoldRepeats" to get it sound right.
