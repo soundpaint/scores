@@ -4,21 +4,21 @@
   filename   = "kol-ha-olam-kulo.ly"
   title      = \markup { \magnify #3 "כל העולם כולו" }
   subtitle   = "(Kol Ha'Olam Kulo)"
-  instrument = "SSATTB"
+  instrument = "mixed choir"
   % meter    = ""
   date       = "1997-12-11"
   source     = "autograph"
   poet       = \markup {
     \column { \vspace #0.5 "Lyrics: " }
     \column \halign #RIGHT  {
-      \line { רַבִּי נַחְמָן מִבְּרֶסְלֶב }
+      \line { "רַבִּי נַחְמָן מִבְּרֶסְלֶב" }
       \line { (Nachman of Breslov) }
     }
   }
   composer   = \markup {
     \column { \vspace #0.5 "Melody: " }
     \column \halign #RIGHT {
-      \line { ברוך חייט }
+      \line { "ברוך חייט" }
       \line { (Baruch Chait) }
     }
   }
@@ -63,13 +63,14 @@ sharedVoiceMarkings = {
 staffMarkings = {
   \tempo "Andante quasi timoroso"
   \skip 1 * 12
-  \tempo "Affrettando o accel."
-  \skip 1 * 4
-  s4
+  \tempo "Affretando fiducioso"
+  s2.^\markup { \italic { accel.  } } s4
+  \skip 1 * 3
   % FIXME: Footnote on markup does not show; so just print
   % the reference here and create the actual footnote
   % elsewhere on a note event:
-  s2.^\markup { \italic { ripetizione  ad lib. \hspace #-1 \normal-text \super "*"  } }
+  s2 s^\markup { \italic { ripetizione  ad lib. \hspace #-1 \normal-text \super "*"  } }
+  s1
 }
 
 midiMarkings = {
@@ -120,7 +121,6 @@ sopranoINotes = {
         r8 d'4 e'8 d' c' b( a) |
       }
       {
-        \once \override Score.Footnote.annotation-line = ##f
         fis'4 d' d' fis' |
         e'1 |
       }
@@ -550,10 +550,11 @@ theMusic =
           } {
             \key e \minor
             \skip 1 * 17
+            \override Staff.Footnote.annotation-line = ##f
             s1
             % FIXME: Here is the actual footnote that should be on the
             % tempo markup but does not show up there.
-            \footnote "" #'(0 . 2) \markup \italic { \super "*" "Optionally, repeat as vocalise (“lai lai lai lai…”)." }
+            \footnote "" #'(0 . 2) \markup \italic { \super "*" \hspace #-0.6 "optionally, repeat as vocalise (“lai lai lai lai…”)" }
             ^\fermata
           }
         >>
@@ -563,34 +564,34 @@ theMusic =
 }
 
 \markup {
-  \hspace #30
+  \hspace #31
   \column {
+    \line {
+      "כל העולם כולו"
+    }
+    \line {
+      "גשר צר מאוד"
+    }
+    \line {
+      "והעיקר"
+    }
+    \line {
+      "לא לפחד כלל."
+    }
+  }
+  \hspace #10
+  \italic \column \halign #RIGHT {
     \line {
       The whole world
     }
     \line {
-      is a very narrow bridge.
+      is a very narrow bridge
     }
     \line {
-      And the main thing is
+      and the main thing is
     }
     \line {
       not to be afraid at all.
-    }
-  }
-  \hspace #10
-  \column \halign #RIGHT {
-    \line {
-      כל העולם כולו
-    }
-    \line {
-      גשר צר מאוד
-    }
-    \line {
-      והעיקר
-    }
-    \line {
-      לא לפחד כלל
     }
   }
 }
@@ -598,7 +599,7 @@ theMusic =
 % Workaround: Move up previous section of text
 % by adding another block of empty space.
 \markup {
-  \vspace #8
+  \vspace #9
 }
 
 % For MIDI output, we need "\unfoldRepeats" to get it sound right.
