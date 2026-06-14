@@ -210,7 +210,7 @@ altoNotes = {
       }
     }
     \repeat volta 2 {
-      e4\f e fis g |
+      e4\f e e g |
       b8 b4 c'8 b2 |
     }
     \alternative {
@@ -269,7 +269,7 @@ tenorINotes = {
       }
       {
         d'4 a b b |
-        e'1 |
+        b1 |
       }
     }
   }
@@ -390,10 +390,10 @@ upperLyricsHebrew = \lyricmode {
   וְ הָ עִ קָּר
   וְ הָ עִ קָּר
   % volta 2.1
-  לֹא  לְ פַחֵ ד
-  לֹא  לְ פַחֵ ד  כְּלָל
+  לֹא  לְ פַ חֵד
+  לֹא  לְ פַ חֵד  כְּלָל
   % volta 2.2
-  לֹא  לְ פַחֵ ד
+  לֹא  לְ פַ חֵד
   כְּלָל
 }
 
@@ -411,13 +411,13 @@ upperLyricsTranscribed = \lyricmode {
   ge- sher |
   tzar me' |
   od. |
-  V' ha' i- kar, |
-  v' ha' i- kar |
+  Ve ha' i- kar, |
+  ve ha' i- kar |
   % volta 2.1
-  lo l' fa- chet,
-  lo l' fa- chet klal. |
+  lo le fa- ched,
+  lo le fa- ched klal. |
   % volta 2.2
-  lo l' fa- chet |
+  lo le fa- ched |
   klal. |
 }
 
@@ -438,10 +438,10 @@ lowerLyricsHebrew = \lyricmode {
   וְ הָ עִ קָּר
   וְ הָ עִ קָּר
   % volta 2.1
-  לֹא  לְ פַחֵ ד
-  לֹא  לְ פַחֵ ד  כְּלָל
+  לֹא  לְ פַ חֵד
+  לֹא  לְ פַ חֵד  כְּלָל
   % volta 2.2
-  לֹא  לְ פַחֵ ד
+  לֹא  לְ פַ חֵד
   כְּלָל
 }
 
@@ -459,13 +459,13 @@ lowerLyricsTranscribed = \lyricmode {
   ge- sher, ge- sher |
   tzar me' |
   od. |
-  V' ha' i- kar,
-  v' ha' i- kar |
+  Ve ha' i- kar,
+  ve ha' i- kar |
   % volta 2.1
-  lo l' fa- chet,
-  lo l' fa- chet klal. |
+  lo le fa- ched,
+  lo le fa- ched klal. |
   % volta 2.2
-  lo l' fa- chet |
+  lo le fa- ched |
   klal. |
 }
 
